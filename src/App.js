@@ -8,7 +8,7 @@ import "./App.css";
 const App = () => {
   const [courseGoals, setCourseGoals] = useState([
     { text: "Do all exercises!", id: "g1" },
-    { text: "Finish the course!", id: "g2" },
+    { text: "Finish the homework.", id: "g2" },
   ]);
 
   const [localStorageExists, setLocalStorageExists] = useState(
