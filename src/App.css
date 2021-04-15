@@ -5,7 +5,7 @@
 }
 
 #goal-form {
-  width: 30rem;
+  width: 35rem;
   max-width: 90%;
   margin: 3rem auto;
   padding: 2rem;
@@ -17,10 +17,8 @@
   max-width: 90%;
   margin: 3rem auto;
   display: flex;
-
   flex-direction: column;
-
-  justify-content: space-around;
+  justify-content: space-between;
 }
 @media (min-width: 500px) {
   #buttons {
