@@ -12,3 +12,18 @@
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
+#buttons {
+  width: 35rem;
+  max-width: 90%;
+  margin: 3rem auto;
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-around;
+}
+@media (min-width: 500px) {
+  #buttons {
+    flex-direction: row;
+  }
+}

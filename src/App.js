@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import CourseGoalList from "./components/CourseGoals/CourseGoalList/CourseGoalList";
 import CourseInput from "./components/CourseGoals/CourseInput/CourseInput";
+import Button from "./components/UI/Button/Button";
 import "./App.css";
 
 const App = () => {
@@ -9,6 +10,10 @@ const App = () => {
     { text: "Do all exercises!", id: "g1" },
     { text: "Finish the course!", id: "g2" },
   ]);
+
+  const [localStorageExists, setLocalStorageExists] = useState(
+    localStorage.getItem("ToDoList") ? true : false
+  );
 
   const addGoalHandler = enteredText => {
     setCourseGoals(prevGoals => {
@@ -28,6 +33,16 @@ const App = () => {
     });
   };
 
+  const saveToLocal = () => {
+    if (courseGoals.length > 0) {
+      localStorage.setItem("ToDoList", JSON.stringify(courseGoals));
+      setLocalStorageExists(true);
+    }
+  };
+  const loadFromLocal = () => {
+    if (localStorage.getItem("ToDoList"))
+      setCourseGoals(JSON.parse(localStorage.ToDoList));
+  };
   let content = (
     <p style={{ textAlign: "center" }}>No items found. Maybe add one?</p>
   );
@@ -40,13 +55,17 @@ const App = () => {
 
   return (
     <div>
+      <section id="buttons">
+        <Button onClick={saveToLocal}>Save Items</Button>
+        <br />
+        <Button onClick={loadFromLocal} disabled={!localStorageExists}>
+          Load Items
+        </Button>
+      </section>
       <section id="goal-form">
         <CourseInput onAddGoal={addGoalHandler} />
       </section>
-      <section id="goals">
-        {content}
-     
-      </section>
+      <section id="goals">{content}</section>
     </div>
   );
 };

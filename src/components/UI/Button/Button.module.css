@@ -20,6 +20,9 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
+.button:disabled {
+  background: #ccc;
+}
 @media (min-width: 500px) {
   .button {
     width: auto;
